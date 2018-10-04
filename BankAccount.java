@@ -39,7 +39,7 @@ public class BankAccount{
   }
 
   public boolean withdraw(double amount){
-    if (amount <= balance) {
+    if (amount <= balance && amount > 0) {
       balance = balance - amount;
       System.out.println("Withdrawal success!");
       return true;
