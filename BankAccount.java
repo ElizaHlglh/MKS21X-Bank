@@ -2,12 +2,12 @@ public class BankAccount{
 
   private double balance;
   private int accountID;
-  private String password;
+  private String Password;
 
   public BankAccount(double x, int y, String z) {
     balance = x;
     accountID = y;
-    password = z;
+    Password = z;
   }
 
   public double getBalance() {
@@ -23,7 +23,7 @@ public class BankAccount{
   }
 
   public void setPassword(String newPass) {
-    password = newPass;
+    Password = newPass;
   }
 
   public boolean deposit(double amount){
@@ -50,4 +50,19 @@ public class BankAccount{
     }
   }
 
+  private boolean authenticate(String password) {
+    return Password.equals(password);
+  }
+
+  public boolean transferTo(BankAccount other, double amount, String password) {
+    if (other.authenticate(password) && (this.withdraw(amount))) {
+        other.deposit(amount);
+        System.out.println("Transfer success!");
+        return true;
+    }
+    else {
+      System.out.println("Transfer failed");
+      return false;
+    }
+  }
 }
