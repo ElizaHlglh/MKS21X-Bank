@@ -55,7 +55,7 @@ public class BankAccount{
   }
 
   public boolean transferTo(BankAccount other, double amount, String password) {
-    if (other.authenticate(password) && (this.withdraw(amount))) {
+    if (authenticate(password) && (this.withdraw(amount))) {
         other.deposit(amount);
         System.out.println("Transfer success!");
         return true;

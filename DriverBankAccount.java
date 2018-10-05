@@ -37,5 +37,9 @@ public class DriverBankAccount{
     b1.transferTo(b2, 100, "abcasdg23");
     System.out.println(b1);
     System.out.println(b2);
+
+    b1.transferTo(b2, 100, "abc123");
+    System.out.println(b1);
+    System.out.println(b2);
   }
 }
